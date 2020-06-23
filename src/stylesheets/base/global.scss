@@ -1,0 +1,58 @@
+@import "./variable";
+@import "./mixin";
+
+body {
+  font-family: $fontBase;
+  //font-family: 'Ubuntu', sans-serif;
+}
+
+#app {
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1160px;
+  margin: 0 auto;
+
+  @include screen('laptop'){
+    max-width: 960px;
+  }
+  @include screen('tablet') {
+    max-width: 720px;
+  }
+  @include screen('mobile'){
+    max-width: 540px;
+  }
+}
+
+a {
+  outline: none;
+  text-decoration: none;
+}
+
+.clear-fix {
+  &:after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  li {
+    display: inline-block;
+  }
+}
+
+.color-orange {
+  color: #ff8600 !important;
+}
+
+footer {
+  img {
+    width: 100%;
+  }
+}

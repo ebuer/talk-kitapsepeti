@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <title>Talk Dijital Html</title>
+    <link rel="stylesheet" href="stylesheets/app.css">
+    <link rel="shortcut icon" href="/Ebu/favicon.ico" />
+    <meta
+            name="description"
+            content="Lorem ipsum dolor sit amet, consectetur
+            adipisicing elit. Amet corporis
+            debitis eligendi.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div id="app">
+    {% include "layouts/header.html" %}
+
+    <div id="app-content">
+        {% block content %} {% endblock %}
+    </div>
+
+    {% include "layouts/footer.html" %}
+</div>
+{% block javascript %}
+<script src="javascripts/app.js"></script>
+{% endblock %}
+</body>
+</html>

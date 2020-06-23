@@ -1,0 +1,58 @@
+@import "../base/variable";
+@import "../base/mixin";
+
+.app-book {
+  width: 160px;
+  .cover {
+    position: relative;
+    width: 100%;
+    height: 240px;
+    transition: all 300ms ease-in-out;
+    cursor: pointer;
+    a {
+      display: block;
+    }
+    .img {
+      //width: 100%;
+      height: 233px;
+    }
+    &:after {
+      content: '';
+      background-image: url("#{$bgImagePath}/book-layout.png");
+      height: 100%;
+      width: 100%;
+      display: block;
+      position: absolute;
+      left: 0;
+      top: -6px;
+    }
+  }
+  .info {
+    font-family: $fontSecond;
+    text-align: center;
+    .title {
+      font-size: 15px;
+      color: rgba(80, 80, 80, 0.9);
+      line-height: 1.2;
+      margin: 0;
+    }
+    .author {
+      color: rgba(80, 80, 80, 0.5);
+      line-height: 1.2;
+      font-size: 10px;
+    }
+    .price {
+      padding: 0;
+      margin: 0;
+      .old {
+        font-size: 9.5px;
+        color: rgba(80, 80, 80, 0.5);
+
+      }
+      .new {
+        font-size: 12.7px;
+        color: rgba(93, 93, 93, 0.9);
+      }
+    }
+  }
+}

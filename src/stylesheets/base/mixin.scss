@@ -1,0 +1,199 @@
+@mixin screen($size) {
+  $bigScreen: "(min-width: 1920px)";
+  $desktop: "(min-width: 1200px)";
+  $maxDesktop: "(max-width: 1199px)";
+  $laptop: "(min-width: 992px) and (max-width: 1199px)";
+  $tablet: "(min-width: 768px) and (max-width: 991px)";
+  $mobile: "(max-width: 767px)";
+  $miniMobile: '(max-width:320px)';
+  $minlaptop: "(min-width: 992px)";
+  $minTablet: '(min-width: 768px)';
+  $maxtablet: '(max-width: 991px)';
+  @if $size == desktop {
+    @media only screen and #{$desktop} {
+      @content;
+    }
+  } @else if $size == bigScreen {
+    @media only screen and #{$bigScreen} {
+      @content;
+    }
+  } @else if $size == maxDesktop {
+    @media only screen and #{$maxDesktop} {
+      @content;
+    }
+  } @else if $size == laptop {
+    @media only screen and #{$laptop} {
+      @content;
+    }
+  } @else if $size == minLaptop {
+    @media only screen and #{$minlaptop} {
+      @content;
+    }
+  } @else if $size == tablet {
+    @media only screen and #{$tablet} {
+      @content;
+    }
+  } @else if $size == minTablet {
+    @media only screen and #{$minTablet} {
+      @content;
+    }
+  } @else if $size == maxTablet {
+    @media only screen and #{$maxtablet} {
+      @content;
+    }
+  } @else if $size == mobile {
+    @media only screen and #{$mobile} {
+      @content;
+    }
+  } @else if $size == miniMobile {
+    @media only screen and #{$miniMobile} {
+      @content;
+    }
+  } @else {
+    @media only screen and #{$size} {
+      @content;
+    }
+  }
+}
+
+.foo {
+  margin: 0 auto;
+  width: 100%;
+  @include screen('tablet') {
+    width: 90%;
+  }
+
+  @include screen('desktop') {
+    width: 85%;
+  }
+}
+
+@mixin center($position) {
+  position: absolute;
+
+  @if $position == 'vertical' {
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  } @else if $position == 'horizontal' {
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translate(-50%);
+  } @else if $position == 'both' {
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+}
+
+//////////////
+
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+.foo {
+  @include opacity(.4);
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin list-light-text {
+  font-size: 12px;
+  font-weight: 400;
+  display: inline-block;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+@mixin reset-a {
+  outline: none !important;
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
+@mixin elipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin box-shadow {
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.1);
+}
+
+$sizes: 100;
+
+@mixin margin-classes {
+  @for $i from 1 through $sizes {
+    $margin: $i * 1px;
+    /* margin #{$margin} */
+    .m#{$i} {
+      margin: $margin;
+    }
+    .ml#{$i} {
+      margin-left: $margin;
+    }
+    .mr#{$i} {
+      margin-right: $margin;
+    }
+    .mt#{$i} {
+      margin-top: $margin;
+    }
+    .mb#{$i} {
+      margin-bottom: $margin;
+    }
+    .mx#{$i} {
+      margin-left: $margin;
+      margin-right: $margin;
+    }
+    .my#{$i} {
+      margin-top: $margin;
+      margin-bottom: $margin;
+    }
+  }
+}
+
+@include margin-classes;
+
+
+@mixin padding-classes {
+  @for $i from 1 through $sizes {
+    $padding: $i * 1px;
+    /* padding #{$padding} */
+    .p#{$i} {
+      padding: $padding;
+    }
+    .pl#{$i} {
+      padding-left: $padding;
+    }
+    .pr#{$i} {
+      padding-right: $padding;
+    }
+    .pt#{$i} {
+      padding-top: $padding;
+    }
+    .pb#{$i} {
+      padding-bottom: $padding;
+    }
+    .px#{$i} {
+      padding-left: $padding;
+      padding-right: $padding;
+    }
+    .py#{$i} {
+      padding-top: $padding;
+      padding-bottom: $padding;
+    }
+  }
+}
+
+@include padding-classes;

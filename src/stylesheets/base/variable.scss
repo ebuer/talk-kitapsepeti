@@ -1,0 +1,11 @@
+$fontBase: 'Roboto', sans-serif;
+$fontSecond: 'Ubuntu', sans-serif;
+$headerTopColor: rgba(56, 56, 56, 0.8);
+$colorYellow: rgb(253, 186, 19);
+$colorDarkYellow: rgb(248, 191, 2);
+$colorGrayBorder: rgb(225, 225, 225);
+//$colorGrayBorder: red;
+//$fontPath: '../../fonts'; // dev mode
+$fontPath: '../fonts'; // build mode
+//$bgImagePath:'../../images'; // dev mode
+$bgImagePath: '../images'; // build mode
