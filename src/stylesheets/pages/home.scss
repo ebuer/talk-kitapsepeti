@@ -17,6 +17,10 @@ $dealsWith: 280px;
           transform: translateY(0);
           opacity: 1;
         }
+        @include screen('mobile'){
+          position: relative;
+          left: -13px;
+        }
       }
     }
 

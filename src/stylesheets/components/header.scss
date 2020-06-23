@@ -205,15 +205,30 @@
       .top {
         display: none;
       }
+      //.bottom {
+      //  .content {
+      //    font-size: 11px;
+      //  }
+      //}
     }
    .navbar {
      .nav {
       .inner {
+        .cat {
+          max-width: 90px;
+          top: -80%;
+        }
         .logo {
           display: none;
         }
         .search {
+          padding: 7px;
           .input {
+            input {
+              &::placeholder {
+                font-size: 10px;
+              }
+            }
             .search-line, select {
               display: none;
             }
@@ -224,6 +239,12 @@
           img {
             max-width: 40px;
           }
+        }
+        &:before {
+          height: 100%;
+        }
+        &:after {
+          display: none;
         }
       }
      }
